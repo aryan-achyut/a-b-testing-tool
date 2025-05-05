@@ -11,3 +11,7 @@ async def analyze(file: UploadFile = File(...)):
     df = pd.read_csv(file.file)
     result = perform_ab_test(df)
     return result
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the A/B Testing Tool"}
